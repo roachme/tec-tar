@@ -21,6 +21,10 @@ function die() {
 	exit 1
 }
 
+function elog() {
+    echo "$PGNAME: " "$@" >&2
+}
+
 function usage()
 {
 cat << EOF
