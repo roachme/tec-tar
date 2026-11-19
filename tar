@@ -241,7 +241,7 @@ function tar_ls()
 {
     local uwd="$TASKDIR/$ENVNAME/$DESKNAME"
 
-    find "$uwd" -name '*.tar' | while read -r arch; do
+    find "$uwd" -maxdepth 1 -name '*.tar' | while read -r arch; do
         local mark="arch"
         local taskid="$(basename -s .tar "$arch")"
         local mydesc="$(tar -xOf "$uwd/$taskid.tar" "$taskid/.tec/units" | grep desc | cut -f 2 -d ':')"
